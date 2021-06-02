@@ -1,4 +1,4 @@
-// Copyright 2018-2020, University of Colorado Boulder
+// Copyright 2018-2021, University of Colorado Boulder
 
 /**
  * IO Type for phet-core Enumeration that supports serializing and deserializing values. Cannot be moved to the core
@@ -8,6 +8,7 @@
  */
 
 import IOType from '../../tandem/js/types/IOType.js';
+import StateSchema from '../../tandem/js/types/StateSchema.js';
 import Enumeration from './Enumeration.js';
 import phetCore from './phetCore.js';
 
@@ -38,7 +39,10 @@ const EnumerationIO = enumeration => {
         assert && assert( typeof stateObject === 'string', 'unsupported EnumerationIO value type, expected string' );
         assert && assert( enumeration.KEYS.indexOf( stateObject ) >= 0, `Unrecognized value: ${stateObject}` );
         return enumeration[ stateObject ];
-      }
+      },
+      stateSchema: new StateSchema( `${valueNames.join( '|' )}`, {
+        isValidValue: v => valueNames.includes( v )
+      } )
     } ) );
   }
 

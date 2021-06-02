@@ -1,4 +1,4 @@
-// Copyright 2019-2020, University of Colorado Boulder
+// Copyright 2019-2021, University of Colorado Boulder
 
 /**
  * Either horizontal or vertical, with helper values.  Moved from Area Model Common on Nov 7, 2019
@@ -28,6 +28,7 @@ class OrientationValue {
    * @param {string} layoutBoxOrientation
    * @param {string} size
    * @param {function(ModelViewTransform2,number):number} modelToView
+   * @param {function(ModelViewTransform2,number):number} viewToModel
    * @param {function(number,number):Vector2} toVector
    */
   constructor( coordinate, centerCoordinate, minSide, maxSide, rectCoordinate,
